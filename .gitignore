@@ -1,0 +1,13 @@
+*.rpt
+*.chg
+smart.log
+*.htm
+*.eqn
+*.pin
+*.sof
+*.pof
+*.qpf
+*.qsf
+db
+incremental_db
+output_files
