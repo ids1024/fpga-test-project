@@ -1,6 +1,5 @@
 PROJECT = test
 SOURCE_FILES = test.v
-ASSIGNMENT_FILES = test.qpf test.qsf
 
 MAP_ARGS = --family="Cyclone II"
 FIT_ARGS = --part=EP2C5T144C8
@@ -32,10 +31,10 @@ output_files/$(PROJECT).asm.rpt: output_files/$(PROJECT).fit.rpt
 output_files/$(PROJECT).sta.rpt: output_files/$(PROJECT).fit.rpt
 	quartus_sta $(STA_ARGS) $(PROJECT) 
 
-smart.log: $(ASSIGNMENT_FILES)
+smart.log: $(PROJECT).qpf $(PROJECT).qsf
 	quartus_sh --determine_smart_action $(PROJECT) > smart.log
 
-$(ASSIGNMENT_FILES): ${PROJECT}.tcl
-	quartus_sh -t ${PROJECT}.tcl
+$(PROJECT).qpf $(PROJECT).qsf: $(PROJECT).tcl
+	quartus_sh -t $(PROJECT).tcl
 
 .PHONY: all clean map fit asm sta smart
