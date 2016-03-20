@@ -1,20 +1,12 @@
-###################################################################
-# Project Configuration: 
-# 
-# Specify the name of the design (project), the Quartus II Settings
-# File (.qsf), and the list of source files used.
-###################################################################
-
 PROJECT = test
 SOURCE_FILES = test.v
 ASSIGNMENT_FILES = test.qpf test.qsf
 
-###################################################################
-# Main Targets
-#
-# all: build everything
-# clean: remove output files and database
-###################################################################
+MAP_ARGS = --family="Cyclone II"
+FIT_ARGS = --part=EP2C5T144C8
+ASM_ARGS =
+STA_ARGS =
+
 
 all: smart.log $(PROJECT).asm.rpt $(PROJECT).sta.rpt 
 
@@ -27,18 +19,6 @@ asm: smart.log $(PROJECT).asm.rpt
 sta: smart.log $(PROJECT).sta.rpt
 smart: smart.log
 
-###################################################################
-# Executable Configuration
-###################################################################
-
-MAP_ARGS = --family="Cyclone II"
-FIT_ARGS = --part=EP2C5T144C8
-ASM_ARGS =
-STA_ARGS =
-
-###################################################################
-# Target implementations
-###################################################################
 
 STAMP = echo done >
 
@@ -60,9 +40,6 @@ $(PROJECT).sta.rpt: sta.chg $(PROJECT).fit.rpt
 smart.log: $(ASSIGNMENT_FILES)
 	quartus_sh --determine_smart_action $(PROJECT) > smart.log
 
-###################################################################
-# Project initialization
-###################################################################
 
 $(ASSIGNMENT_FILES):
 	quartus_sh -t ${PROJECT}.tcl
