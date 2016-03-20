@@ -18,6 +18,12 @@ asm: smart.log output_files/$(PROJECT).asm.rpt
 sta: smart.log output_files/$(PROJECT).sta.rpt
 smart: smart.log
 
+upload: output_files/$(PROJECT).sta.rpt
+	quartus_pgm -z --mode=JTAG --operation="p;output_files/$(PROJECT).sof"
+
+upload_as: output_files/$(PROJECT).sta.rpt
+	quartus_pgm -z --mode=AS --operation="p;output_files/$(PROJECT).pof"
+
 
 output_files/$(PROJECT).map.rpt: $(SOURCE_FILES)
 	quartus_map $(MAP_ARGS) $(PROJECT)
@@ -37,4 +43,4 @@ smart.log: $(PROJECT).qpf $(PROJECT).qsf
 $(PROJECT).qpf $(PROJECT).qsf: $(PROJECT).tcl
 	quartus_sh -t $(PROJECT).tcl
 
-.PHONY: all clean map fit asm sta smart
+.PHONY: all clean map fit asm sta smart upload upload_as
