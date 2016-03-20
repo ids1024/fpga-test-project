@@ -10,7 +10,7 @@ STA_ARGS =
 all: smart.log output_files/$(PROJECT).asm.rpt output_files/$(PROJECT).sta.rpt
 
 clean:
-	rm -rf output_files/*.rpt smart.log *.htm *.eqn *.pin *.sof *.pof *.qpf *.qsf db incremental_db
+	rm -rf map.chg output_files/*.rpt smart.log *.htm *.eqn *.pin *.sof *.pof *.qpf *.qsf db incremental_db
 
 map: smart.log output_files/$(PROJECT).map.rpt
 fit: smart.log output_files/$(PROJECT).fit.rpt

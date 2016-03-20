@@ -7,6 +7,7 @@ smart.log
 *.pof
 *.qpf
 *.qsf
+map.chg
 db
 incremental_db
 output_files
