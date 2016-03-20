@@ -1,10 +1,6 @@
 package require ::quartus::project
 
-if {[project_exists test]} {
-	project_open -revision test test
-} else {
-	project_new -revision test test
-}
+project_new -overwrite -revision test test
 
 set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE EP2C5T144C8
