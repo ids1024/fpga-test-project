@@ -35,6 +35,7 @@ $(PROJECT).sta.rpt: $(PROJECT).fit.rpt
 smart.log: $(ASSIGNMENT_FILES)
 	quartus_sh --determine_smart_action $(PROJECT) > smart.log
 
-
 $(ASSIGNMENT_FILES): ${PROJECT}.tcl
 	quartus_sh -t ${PROJECT}.tcl
+
+.PHONY: all clean map fit asm sta smart
