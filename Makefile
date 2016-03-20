@@ -12,10 +12,10 @@ all: smart.log output_files/$(PROJECT).asm.rpt output_files/$(PROJECT).sta.rpt
 clean:
 	rm -rf output_files/*.rpt smart.log *.htm *.eqn *.pin *.sof *.pof *.qpf *.qsf db incremental_db
 
-map: smart.log $(PROJECT).map.rpt
-fit: smart.log $(PROJECT).fit.rpt
-asm: smart.log $(PROJECT).asm.rpt
-sta: smart.log $(PROJECT).sta.rpt
+map: smart.log output_files/$(PROJECT).map.rpt
+fit: smart.log output_files/$(PROJECT).fit.rpt
+asm: smart.log output_files/$(PROJECT).asm.rpt
+sta: smart.log output_files/$(PROJECT).sta.rpt
 smart: smart.log
 
 
