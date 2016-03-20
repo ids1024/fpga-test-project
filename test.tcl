@@ -18,5 +18,6 @@ set_location_assignment PIN_144 -to button
 set_location_assignment PIN_3 -to led1
 set_location_assignment PIN_7 -to led2
 set_location_assignment PIN_9 -to led3
+set_location_assignment PIN_17 -to clk
 
 export_assignments
